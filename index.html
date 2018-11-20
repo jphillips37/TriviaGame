@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" src="assets/css/style.css">
 
     <!-- add jquery link here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Trivia</title>
 </head>
@@ -18,106 +19,86 @@
         <div class="text-center">
             <h1>Super Hard Trivia Game!</h1>
             <h3 id="timer">Time Remaining: 15 seconds</h3>
-            <button type="button" class="btn btn-primary btn-lg">Start</button>
+            <button type="button" class="btn btn-primary btn-lg" id="btn">Start</button>
         </div>
-        <div class="trivia-text trivia-one"> <!-- Use this layout for all questions -->
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>  <!-- change where this class is for each-->
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-one"> <!-- Use this layout for all questions --> 
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="correct">choice C</p>  <!-- change where this class is for each-->
+            <p class="incorrect">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-two"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-two">  
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="correct">choice B</p> 
+            <p class="incorrect">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
         <div class="trivia-text trivia-three"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="correct">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-four"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-four">
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="correct">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
         <div class="trivia-text trivia-five"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+            <h3>Question here</h3>
+            <p class="correct">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-six"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-six">
+            <h3>Question here</h3>
+            <p class="correct">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-seven"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-seven">
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="correct">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-eight"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-eight">
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="correct">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-nine"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-nine">
+            <h3>Question here</h3>
+            <p class="correct">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="incorrect">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
 
-        <div class="trivia-text trivia-ten"> 
-            <div class="row"> 
-                <h3>Question 1 here</h3>
-                <p class="incorrect">choice A</p>
-                <p class="incorrect">choice B</p>
-                <p class="correct">choice C</p>
-                <p class="incorrect">choice D</p>
-            </div>
+        <div class="trivia-text trivia-ten">
+            <h3>Question here</h3>
+            <p class="incorrect">choice A</p>
+            <p class="incorrect">choice B</p>
+            <p class="correct">choice C</p>
+            <p class="incorrect">choice D</p>
         </div>
     </div>
 </body>

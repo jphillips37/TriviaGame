@@ -1,5 +1,6 @@
 $(".trivia-text").hide();
 $("#timer").hide();
+$("#correctImage, #incorrectImage, #expired").hide();
 
 var timer = 0;
 var correct = 0;
@@ -8,6 +9,7 @@ var intervalId;
 var currentQuestion = 1;
 
 function nextQuestion() {
+    $("#correctImage, #incorrectImage, #expired").hide();
     $(".incorrect").show();
     $(".trivia-text").hide();
     $(".trivia-"+currentQuestion).show();
@@ -21,9 +23,10 @@ function decrement() {
     if (timer < 1) {
         stop();
         // alert("Time is Up");
+        $("#expired").show();
         $(".incorrect").hide();
         incorrect++;
-        timer = 5;
+        timer = 15;
         currentQuestion++;
         if (currentQuestion <= 10) {
             setTimeout(nextQuestion, 3000);
@@ -59,6 +62,7 @@ function endGame() {
     $("button").show();
     $("button").text("Reset");
     $(".results").show();
+    $("#correctImage, #incorrectImage, #expired").hide();
     $(".correctGuesses").text("Correct Guesses: " + correct);
     $(".incorrectGuesses").text("Incorrect Guesses: " + incorrect);
 }
@@ -67,7 +71,7 @@ $(".btn").on("click", function() {
     if ($("button").text() == "Start") {
         $(".btn").hide();
         $("#timer").show();
-        timer = 5;
+        timer = 15;
         
         currentQuestion = 1;
         nextQuestion();
@@ -78,33 +82,29 @@ $(".btn").on("click", function() {
 })
 
 $("p").click(function() {
-    console.log("click worked");
+    // console.log("click worked");
     if ($(this).attr("class") == "incorrect") {
-        console.log("incorrect");
+        // console.log("incorrect");
         stop();
+        $("#incorrectImage").show();
         $(".incorrect").hide();
         incorrect++;
     }
     else {
-        console.log("correct");
+        // console.log("correct");
         $(".incorrect").hide();
+        $("#correctImage").show();
         stop();
         correct++;
     }
 
-    timer = 5;
+    timer = 15;
     currentQuestion++;
-    // countdown();
     if (currentQuestion < 11) {
-        console.log("next question");
+        // console.log("next question");
         setTimeout(nextQuestion, 3000);
-        // countdown();
     }
     else {
-        endGame();
+        setTimeout(endGame, 3000);
     }
 })
-
-//nextQuestion("trivia-" + currentQuestion);
-
-

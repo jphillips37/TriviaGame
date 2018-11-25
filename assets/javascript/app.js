@@ -5,11 +5,13 @@ var timer = 0;
 var correct = 0;
 var incorrect = 0;
 var intervalId;
-var currentQuestion = 0;
+var currentQuestion = 1;
 
-function nextQuestion(questionNumber) {
+function nextQuestion() {
+    $(".incorrect").show();
     $(".trivia-text").hide();
-    $("."+questionNumber).show();
+    $(".trivia-"+currentQuestion).show();
+    countdown();
 }
 
 function decrement() {
@@ -18,6 +20,17 @@ function decrement() {
 
     if (timer < 1) {
         stop();
+        // alert("Time is Up");
+        $(".incorrect").hide();
+        incorrect++;
+        timer = 5;
+        currentQuestion++;
+        if (currentQuestion <= 10) {
+            setTimeout(nextQuestion, 3000);
+        }
+        else {
+            endGame();
+        }
     }
 }
 
@@ -30,15 +43,37 @@ function stop() {
     clearInterval(intervalId);
 }
 
+function reset() {
+    correct = 0;
+    incorrect = 0;
+    currentQuestion = 1;
+    $(".results").hide();
+    $(".trivia-text").hide();
+    $("#timer").hide();
+    $("button").text("Start");
+}
+
+function endGame() {
+    $("#timer").hide();
+    $(".trivia-text").hide();
+    $("button").show();
+    $("button").text("Reset");
+    $(".results").show();
+    $(".correctGuesses").text("Correct Guesses: " + correct);
+    $(".incorrectGuesses").text("Incorrect Guesses: " + incorrect);
+}
+
 $(".btn").on("click", function() {
     if ($("button").text() == "Start") {
         $(".btn").hide();
         $("#timer").show();
-        timer = 15;
+        timer = 5;
         
-        nextQuestion("trivia-1");
         currentQuestion = 1;
-        countdown();
+        nextQuestion();
+    }
+    else {
+        reset();
     }
 })
 
@@ -52,16 +87,24 @@ $("p").click(function() {
     }
     else {
         console.log("correct");
+        $(".incorrect").hide();
         stop();
         correct++;
     }
 
-    timer = 4;
+    timer = 5;
     currentQuestion++;
+    // countdown();
     if (currentQuestion < 11) {
-        nextQuestion("trivia-" + currentQuestion);
-        countdown();
+        console.log("next question");
+        setTimeout(nextQuestion, 3000);
+        // countdown();
+    }
+    else {
+        endGame();
     }
 })
+
+//nextQuestion("trivia-" + currentQuestion);
 
 

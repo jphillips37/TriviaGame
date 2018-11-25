@@ -13,8 +13,8 @@ on button click, check text property of the button.
 
         if answer class element is clicked, check if it's the correct answer
 
-            stop countdown timer
             if it's correct, hide all other answers and start a short timer (3-5 seconds)
+            stop countdown timer
             hide first question div
             show second question div and start 30 second timer
 

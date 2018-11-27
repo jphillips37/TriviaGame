@@ -7,6 +7,7 @@ var correct = 0;
 var incorrect = 0;
 var intervalId;
 var currentQuestion = 1;
+var backgroundArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function nextQuestion() {
     $("#correctImage, #incorrectImage, #expired").hide();
@@ -67,7 +68,15 @@ function endGame() {
     $(".incorrectGuesses").text("Incorrect Guesses: " + incorrect);
 }
 
+function updateBackground() {
+    $("body").css("background-image", "url("+backgroundArray+")");
+}
+
 $(".btn").on("click", function() {
+
+    backgroundArray.sort(function() { return 0.5 - Math.random() });  // this will generate a random order for the background pictures to cycle through
+    console.log(backgroundArray);
+
     if ($("button").text() == "Start") {
         $(".btn").hide();
         $("#timer").show();

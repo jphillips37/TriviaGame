@@ -1,0 +1,14 @@
+.container {
+    border: solid;
+    width: 650px;
+    min-height: 200px;
+    background-color: lightgray;
+}
+p.incorrect:hover, p.correct:hover {
+    background-color: rgba(20, 88, 214, 0.2);
+    border-style: solid;
+    border-color: rgb(20, 88, 214);
+}
+img {
+    margin-bottom: 10px;
+}

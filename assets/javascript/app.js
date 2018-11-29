@@ -7,13 +7,24 @@ var correct = 0;
 var incorrect = 0;
 var intervalId;
 var currentQuestion = 1;
-var backgroundArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var backgroundArray = ["assets/images/background-image-1.jpg",
+                        "assets/images/background-image-2.jpg", 
+                        "assets/images/background-image-3.jpg", 
+                        "assets/images/background-image-4.jpg", 
+                        "assets/images/background-image-5.jpg", 
+                        "assets/images/background-image-6.jpg", 
+                        "assets/images/background-image-7.jpg", 
+                        "assets/images/background-image-8.jpg", 
+                        "assets/images/background-image-9.jpg", 
+                        "assets/images/background-image-10.jpg",
+                        "assets/images/background-image-11.jpg"];
 
 function nextQuestion() {
     $("#correctImage, #incorrectImage, #expired").hide();
     $(".incorrect").show();
     $(".trivia-text").hide();
     $(".trivia-"+currentQuestion).show();
+    updateBackground();
     countdown();
 }
 
@@ -23,7 +34,6 @@ function decrement() {
 
     if (timer < 1) {
         stop();
-        // alert("Time is Up");
         $("#expired").show();
         $(".incorrect").hide();
         incorrect++;
@@ -69,12 +79,16 @@ function endGame() {
 }
 
 function updateBackground() {
-    $("body").css("background-image", "url("+backgroundArray+")");
+    var backgroundImage = backgroundArray[Math.floor(Math.random() * backgroundArray.length)];
+    console.log(backgroundImage);
+    $("body").css("background-image", "url("+backgroundImage+")");
 }
+
+updateBackground();
 
 $(".btn").on("click", function() {
 
-    backgroundArray.sort(function() { return 0.5 - Math.random() });  // this will generate a random order for the background pictures to cycle through
+    backgroundArray.sort(function() { return 0.5 - Math.random() }); 
     console.log(backgroundArray);
 
     if ($("button").text() == "Start") {
@@ -88,6 +102,7 @@ $(".btn").on("click", function() {
     else {
         reset();
     }
+    updateBackground();
 })
 
 $("p").click(function() {
@@ -116,4 +131,5 @@ $("p").click(function() {
     else {
         setTimeout(endGame, 3000);
     }
+
 })

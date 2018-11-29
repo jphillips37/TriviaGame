@@ -31,5 +31,6 @@ on button click, check text property of the button.
         set button text value to reset
 
     if text = reset:
+        change button text back to "Start"
         set variables = 0
         hide all text, only header and button should be visible

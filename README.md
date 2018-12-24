@@ -1,5 +1,5 @@
 # TriviaGame
-
+https://jphillips37.github.io/TriviaGame/
 all questions and answers will be visible by default in the html
 
 in js, before anything happens, hide all questions/answers and only show header and start button
